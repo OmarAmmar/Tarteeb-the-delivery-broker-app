@@ -1,0 +1,1283 @@
+--
+-- PostgreSQL database cluster dump
+--
+
+-- Started on 2022-05-17 22:47:39 EEST
+
+SET default_transaction_read_only = off;
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+
+--
+-- Drop databases (except postgres and template1)
+--
+
+
+
+
+
+--
+-- Drop roles
+--
+
+DROP ROLE postgres;
+
+
+--
+-- Roles
+--
+
+CREATE ROLE postgres;
+ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:0Z4bJoAKIK8+ewr0p/953w==$dtkYiPyIQHEDrz68rcWmMqQBFBEQWpNO96PNEcSQkcw=:YeSBnWa/XqwPV4YFq+tgaZDpp3GAMxurmO0k+HrhMSA=';
+
+
+
+
+
+
+--
+-- Databases
+--
+
+--
+-- Database "template1" dump
+--
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.2
+-- Dumped by pg_dump version 14.2
+
+-- Started on 2022-05-17 22:47:39 EEST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+UPDATE pg_catalog.pg_database SET datistemplate = false WHERE datname = 'template1';
+DROP DATABASE template1;
+--
+-- TOC entry 3569 (class 1262 OID 1)
+-- Name: template1; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'C';
+
+
+ALTER DATABASE template1 OWNER TO postgres;
+
+\connect template1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3570 (class 0 OID 0)
+-- Dependencies: 3569
+-- Name: DATABASE template1; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE template1 IS 'default template for new databases';
+
+
+--
+-- TOC entry 3572 (class 0 OID 0)
+-- Name: template1; Type: DATABASE PROPERTIES; Schema: -; Owner: postgres
+--
+
+ALTER DATABASE template1 IS_TEMPLATE = true;
+
+
+\connect template1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3571 (class 0 OID 0)
+-- Dependencies: 3569
+-- Name: DATABASE template1; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE CONNECT,TEMPORARY ON DATABASE template1 FROM PUBLIC;
+GRANT CONNECT ON DATABASE template1 TO PUBLIC;
+
+
+-- Completed on 2022-05-17 22:47:40 EEST
+
+--
+-- PostgreSQL database dump complete
+--
+
+--
+-- Database "postgres" dump
+--
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.2
+-- Dumped by pg_dump version 14.2
+
+-- Started on 2022-05-17 22:47:40 EEST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+DROP DATABASE postgres;
+--
+-- TOC entry 3748 (class 1262 OID 14020)
+-- Name: postgres; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE postgres WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'C';
+
+
+ALTER DATABASE postgres OWNER TO postgres;
+
+\connect postgres
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3749 (class 0 OID 0)
+-- Dependencies: 3748
+-- Name: DATABASE postgres; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE postgres IS 'default administrative connection database';
+
+
+--
+-- TOC entry 2 (class 3079 OID 16384)
+-- Name: adminpack; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS adminpack WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 3750 (class 0 OID 0)
+-- Dependencies: 2
+-- Name: EXTENSION adminpack; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION adminpack IS 'administrative functions for PostgreSQL';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 230 (class 1259 OID 25116)
+-- Name: GROCERRY; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."GROCERRY" (
+    "GROCERRY_ID" character varying(10) NOT NULL
+);
+
+
+ALTER TABLE public."GROCERRY" OWNER TO postgres;
+
+--
+-- TOC entry 217 (class 1259 OID 24703)
+-- Name: MENU; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."MENU" (
+    "menuID" character varying(10) NOT NULL,
+    description character varying(100)
+);
+
+
+ALTER TABLE public."MENU" OWNER TO postgres;
+
+--
+-- TOC entry 215 (class 1259 OID 24670)
+-- Name: MGR_DATA; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."MGR_DATA" (
+    mgr_phone character varying(20) NOT NULL,
+    mgr_name character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public."MGR_DATA" OWNER TO postgres;
+
+--
+-- TOC entry 222 (class 1259 OID 24777)
+-- Name: ORDER; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."ORDER" (
+    "orderID" integer NOT NULL,
+    "totalPrice" integer NOT NULL,
+    user_email character varying(30) NOT NULL,
+    points integer NOT NULL,
+    date date NOT NULL,
+    "time" time without time zone NOT NULL
+);
+
+
+ALTER TABLE public."ORDER" OWNER TO postgres;
+
+--
+-- TOC entry 224 (class 1259 OID 24804)
+-- Name: ORDER_DELIVERY; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."ORDER_DELIVERY" (
+    "orderID" integer NOT NULL,
+    "deliveryFee" smallint NOT NULL,
+    "riderID" integer NOT NULL,
+    "shopID" character varying(10) NOT NULL
+);
+
+
+ALTER TABLE public."ORDER_DELIVERY" OWNER TO postgres;
+
+--
+-- TOC entry 225 (class 1259 OID 24824)
+-- Name: ORDER_PICKUP; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."ORDER_PICKUP" (
+    "orderID" integer NOT NULL,
+    "EstimatedTime" integer NOT NULL
+);
+
+
+ALTER TABLE public."ORDER_PICKUP" OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 24789)
+-- Name: ORDER_RESERVATION; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."ORDER_RESERVATION" (
+    "orderID" integer NOT NULL,
+    no_customers smallint NOT NULL,
+    date timestamp without time zone NOT NULL,
+    "resturantID" character varying(10)
+);
+
+
+ALTER TABLE public."ORDER_RESERVATION" OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 24658)
+-- Name: PREMIUM; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."PREMIUM" (
+    user_email character varying(30) NOT NULL,
+    sub_start_date date NOT NULL,
+    sub_end_date date
+);
+
+
+ALTER TABLE public."PREMIUM" OWNER TO postgres;
+
+--
+-- TOC entry 219 (class 1259 OID 24744)
+-- Name: PRODUCT; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."PRODUCT" (
+    "productID" character varying(20) NOT NULL,
+    price integer NOT NULL,
+    description character varying(100) NOT NULL,
+    "menuID" character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public."PRODUCT" OWNER TO postgres;
+
+--
+-- TOC entry 227 (class 1259 OID 24853)
+-- Name: PRODUCT_ORDER; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."PRODUCT_ORDER" (
+    "productID" character varying(20) NOT NULL,
+    "orderID" integer NOT NULL,
+    count smallint NOT NULL
+);
+
+
+ALTER TABLE public."PRODUCT_ORDER" OWNER TO postgres;
+
+--
+-- TOC entry 229 (class 1259 OID 24888)
+-- Name: PRODUCT_REVIEWS; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."PRODUCT_REVIEWS" (
+    "productID" character varying(20) NOT NULL,
+    user_email character varying(30) NOT NULL,
+    review character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public."PRODUCT_REVIEWS" OWNER TO postgres;
+
+--
+-- TOC entry 218 (class 1259 OID 24722)
+-- Name: RESTURANTS; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."RESTURANTS" (
+    "resturantID" character varying(10) NOT NULL,
+    "cuisineType" character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public."RESTURANTS" OWNER TO postgres;
+
+--
+-- TOC entry 221 (class 1259 OID 24761)
+-- Name: RIDERS; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."RIDERS" (
+    "ID" integer NOT NULL,
+    email character varying(20) NOT NULL,
+    type character varying(10) NOT NULL,
+    base_salary integer DEFAULT 0
+);
+
+
+ALTER TABLE public."RIDERS" OWNER TO postgres;
+
+--
+-- TOC entry 220 (class 1259 OID 24756)
+-- Name: RIDER_DATA; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."RIDER_DATA" (
+    email character varying(20) NOT NULL,
+    name character varying(20) NOT NULL,
+    surname character varying(20) NOT NULL,
+    phone_number numeric(20,0) NOT NULL,
+    vehicle character varying(10) NOT NULL
+);
+
+
+ALTER TABLE public."RIDER_DATA" OWNER TO postgres;
+
+--
+-- TOC entry 228 (class 1259 OID 24871)
+-- Name: RIDER_REVIEWS; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."RIDER_REVIEWS" (
+    "riderID" integer NOT NULL,
+    user_email character varying(30) NOT NULL,
+    review character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public."RIDER_REVIEWS" OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 24691)
+-- Name: SHOP; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."SHOP" (
+    "shopID" character varying(10) NOT NULL,
+    location character varying(30) NOT NULL,
+    name character varying(20) NOT NULL,
+    "menuID" character varying(10),
+    mgr_phone character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public."SHOP" OWNER TO postgres;
+
+--
+-- TOC entry 226 (class 1259 OID 24836)
+-- Name: SHOP_REVIEWS; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."SHOP_REVIEWS" (
+    "shopID" character varying(10) NOT NULL,
+    user_email character varying(30) NOT NULL,
+    review character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public."SHOP_REVIEWS" OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 24646)
+-- Name: STUDENT; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."STUDENT" (
+    user_email character varying(30) NOT NULL,
+    student_no character varying(10) NOT NULL,
+    school_name character varying(20)
+);
+
+
+ALTER TABLE public."STUDENT" OWNER TO postgres;
+
+--
+-- TOC entry 210 (class 1259 OID 24615)
+-- Name: USER; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."USER" (
+    email character varying(30) NOT NULL,
+    uname character varying(30) NOT NULL,
+    surname character varying(30) NOT NULL,
+    pwd character varying(30) NOT NULL,
+    "accountType" character varying(20) DEFAULT 'STANDERD'::character varying,
+    phone character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public."USER" OWNER TO postgres;
+
+--
+-- TOC entry 211 (class 1259 OID 24622)
+-- Name: USER_ADDRESSES; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."USER_ADDRESSES" (
+    user_email character varying(30) NOT NULL,
+    "Adress" character varying NOT NULL
+);
+
+
+ALTER TABLE public."USER_ADDRESSES" OWNER TO postgres;
+
+--
+-- TOC entry 212 (class 1259 OID 24634)
+-- Name: USER_CC_INFO; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."USER_CC_INFO" (
+    user_email character varying(30) NOT NULL,
+    cc_info character varying(30) NOT NULL
+);
+
+
+ALTER TABLE public."USER_CC_INFO" OWNER TO postgres;
+
+--
+-- TOC entry 3742 (class 0 OID 25116)
+-- Dependencies: 230
+-- Data for Name: GROCERRY; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."GROCERRY" ("GROCERRY_ID") VALUES ('Shop1');
+INSERT INTO public."GROCERRY" ("GROCERRY_ID") VALUES ('Shop2');
+
+
+--
+-- TOC entry 3729 (class 0 OID 24703)
+-- Dependencies: 217
+-- Data for Name: MENU; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."MENU" ("menuID", description) VALUES ('G1', 'Grocerry Menu 1
+');
+INSERT INTO public."MENU" ("menuID", description) VALUES ('G2', 'Grocerry Menu 2');
+INSERT INTO public."MENU" ("menuID", description) VALUES ('G3', 'Grocerry Menu 3');
+INSERT INTO public."MENU" ("menuID", description) VALUES ('R1', 'Restaurant Menu 1
+');
+INSERT INTO public."MENU" ("menuID", description) VALUES ('R2
+', 'Resturant Menu 2
+');
+INSERT INTO public."MENU" ("menuID", description) VALUES ('R3', 'Resturant Menu 3
+');
+
+
+--
+-- TOC entry 3727 (class 0 OID 24670)
+-- Dependencies: 215
+-- Data for Name: MGR_DATA; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."MGR_DATA" (mgr_phone, mgr_name) VALUES ('+9054292450325', 'mgr1');
+INSERT INTO public."MGR_DATA" (mgr_phone, mgr_name) VALUES ('+905428357890', 'mgr2');
+INSERT INTO public."MGR_DATA" (mgr_phone, mgr_name) VALUES ('+905428809903', 'mgr3');
+INSERT INTO public."MGR_DATA" (mgr_phone, mgr_name) VALUES ('+905428809906', 'mgr4');
+INSERT INTO public."MGR_DATA" (mgr_phone, mgr_name) VALUES ('+905424232906', 'mgr5');
+
+
+--
+-- TOC entry 3734 (class 0 OID 24777)
+-- Dependencies: 222
+-- Data for Name: ORDER; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."ORDER" ("orderID", "totalPrice", user_email, points, date, "time") VALUES (1, 100, 'user1@gmail.com', 10, '2022-10-10', '17:06:22');
+INSERT INTO public."ORDER" ("orderID", "totalPrice", user_email, points, date, "time") VALUES (2, 123, 'user1@gmail.com', 12, '2022-12-02', '05:49:22');
+INSERT INTO public."ORDER" ("orderID", "totalPrice", user_email, points, date, "time") VALUES (3, 75, 'user1@gmail.com', 7, '2022-04-12', '18:07:12');
+INSERT INTO public."ORDER" ("orderID", "totalPrice", user_email, points, date, "time") VALUES (4, 150, 'user2@gmail.com', 15, '2022-02-09', '18:07:28');
+INSERT INTO public."ORDER" ("orderID", "totalPrice", user_email, points, date, "time") VALUES (5, 200, 'user3@gmail.com', 20, '2022-06-22', '10:09:08');
+INSERT INTO public."ORDER" ("orderID", "totalPrice", user_email, points, date, "time") VALUES (6, 350, 'user4@gmail.com', 35, '2022-07-04', '12:05:34');
+
+
+--
+-- TOC entry 3736 (class 0 OID 24804)
+-- Dependencies: 224
+-- Data for Name: ORDER_DELIVERY; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."ORDER_DELIVERY" ("orderID", "deliveryFee", "riderID", "shopID") VALUES (2, 15, 1, 'Resturant1');
+INSERT INTO public."ORDER_DELIVERY" ("orderID", "deliveryFee", "riderID", "shopID") VALUES (1, 50, 1, 'Shop1');
+
+
+--
+-- TOC entry 3737 (class 0 OID 24824)
+-- Dependencies: 225
+-- Data for Name: ORDER_PICKUP; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."ORDER_PICKUP" ("orderID", "EstimatedTime") VALUES (3, 10);
+INSERT INTO public."ORDER_PICKUP" ("orderID", "EstimatedTime") VALUES (4, 15);
+
+
+--
+-- TOC entry 3735 (class 0 OID 24789)
+-- Dependencies: 223
+-- Data for Name: ORDER_RESERVATION; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."ORDER_RESERVATION" ("orderID", no_customers, date, "resturantID") VALUES (5, 3, '2022-02-12 00:00:00', 'Resturant1');
+INSERT INTO public."ORDER_RESERVATION" ("orderID", no_customers, date, "resturantID") VALUES (6, 2, '2022-12-05 00:00:00', 'Resturant3');
+
+
+--
+-- TOC entry 3726 (class 0 OID 24658)
+-- Dependencies: 214
+-- Data for Name: PREMIUM; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."PREMIUM" (user_email, sub_start_date, sub_end_date) VALUES ('user4@gmail.com', '2022-05-09', '2024-06-22');
+INSERT INTO public."PREMIUM" (user_email, sub_start_date, sub_end_date) VALUES ('user6@gmail.com', '2022-05-07', '2024-06-22');
+
+
+--
+-- TOC entry 3731 (class 0 OID 24744)
+-- Dependencies: 219
+-- Data for Name: PRODUCT; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG11', 10, 'Juice
+', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG12', 20, 'Product 2', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG13', 32, 'Product 3', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG14', 35, 'Product 4', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG15', 30, 'Product 5', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG16', 25, 'Product 6', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG17', 12, 'Product 7', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG18', 18, 'Product 8', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG19', 12, 'Product 9', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG10', 2, 'Product 1O', 'G1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG22', 20, 'Product 2', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG23', 32, 'Product 3', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG24', 35, 'Product 4', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG25', 30, 'Product 5', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG26', 25, 'Product 6', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG27', 12, 'Product 7', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG28', 18, 'Product 8', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG29', 12, 'Product 9', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG20', 2, 'Product 1O', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG21', 20, 'Product 1', 'G2');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG32', 20, 'Product 2', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG33', 32, 'Product 3', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG34', 35, 'Product 4', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG35', 30, 'Product 5', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG36', 25, 'Product 6', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG37', 12, 'Product 7', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG38', 18, 'Product 8', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG39', 12, 'Product 9', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG30', 2, 'Product 1O', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PG31', 20, 'Product 1', 'G3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR12', 20, 'Meal 2', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR13', 32, 'Meal 3', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR14', 35, 'Product 4', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR15', 30, 'Product 5', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR16', 25, 'Product 6', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR17', 12, 'Product 7', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR18', 18, 'Product 8', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR19', 12, 'Product 9', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR10', 2, 'Product 1O', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR11', 20, 'Product 1', 'R1');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR23', 13, 'Juice
+', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR22', 20, 'Meal 2', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR24', 35, 'Meal 4', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR25', 30, 'Meal 5', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR26', 25, 'Meal 6', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR27', 12, 'Meal 7', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR28', 18, 'Meal 8', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR29', 12, 'Meal 9', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR20', 2, 'Meal 1O', 'R3');
+INSERT INTO public."PRODUCT" ("productID", price, description, "menuID") VALUES ('PR21', 20, 'Meal 1', 'R3');
+
+
+--
+-- TOC entry 3739 (class 0 OID 24853)
+-- Dependencies: 227
+-- Data for Name: PRODUCT_ORDER; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."PRODUCT_ORDER" ("productID", "orderID", count) VALUES ('PG10', 1, 2);
+INSERT INTO public."PRODUCT_ORDER" ("productID", "orderID", count) VALUES ('PG13', 1, 3);
+INSERT INTO public."PRODUCT_ORDER" ("productID", "orderID", count) VALUES ('PG14', 1, 1);
+INSERT INTO public."PRODUCT_ORDER" ("productID", "orderID", count) VALUES ('PR11', 2, 1);
+INSERT INTO public."PRODUCT_ORDER" ("productID", "orderID", count) VALUES ('PR13', 2, 1);
+INSERT INTO public."PRODUCT_ORDER" ("productID", "orderID", count) VALUES ('PR12', 2, 2);
+
+
+--
+-- TOC entry 3741 (class 0 OID 24888)
+-- Dependencies: 229
+-- Data for Name: PRODUCT_REVIEWS; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."PRODUCT_REVIEWS" ("productID", user_email, review) VALUES ('PG13', 'user1@gmail.com', 'Good');
+INSERT INTO public."PRODUCT_REVIEWS" ("productID", user_email, review) VALUES ('PG32', 'user2@gmail.com', 'Bad');
+
+
+--
+-- TOC entry 3730 (class 0 OID 24722)
+-- Dependencies: 218
+-- Data for Name: RESTURANTS; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."RESTURANTS" ("resturantID", "cuisineType") VALUES ('Resturant1', 'Italian');
+INSERT INTO public."RESTURANTS" ("resturantID", "cuisineType") VALUES ('Resturant2', 'Turkish');
+INSERT INTO public."RESTURANTS" ("resturantID", "cuisineType") VALUES ('Resturant3', 'Italian');
+INSERT INTO public."RESTURANTS" ("resturantID", "cuisineType") VALUES ('Resturant4', 'Italian');
+
+
+--
+-- TOC entry 3733 (class 0 OID 24761)
+-- Dependencies: 221
+-- Data for Name: RIDERS; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (1, 'rider1@gmail.com', 'FULL', 2000);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (2, 'rider2@gmail.com', 'FULL', 2000);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (3, 'rider3@gmail.com', 'FULL', 2000);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (4, 'rider4@gmail.com', 'FULL', 2000);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (5, 'rider5@gmail.com', 'PART', NULL);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (6, 'rider6@gmail.com', 'PART', NULL);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (7, 'rider7@gmail.com', 'FULL', 1500);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (9, 'rider9@gmail.com', 'PART', NULL);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (11, 'rider11@gmail.com', 'FULL', 1000);
+INSERT INTO public."RIDERS" ("ID", email, type, base_salary) VALUES (10, 'rider10@gmail.com', 'FULL', 1000);
+
+
+--
+-- TOC entry 3732 (class 0 OID 24756)
+-- Dependencies: 220
+-- Data for Name: RIDER_DATA; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider1@gmail.com', 'Rider', 'one', 90533829456, 'CAR');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider2@gmail.com', 'Rider', 'two
+', 90533829456, 'Bike
+');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider3@gmail.com', 'Rider', 'Three', 905338294135, 'CAR');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider4@gmail.com', 'Rider', 'Four', 9053384124135, 'CAR');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider5@gmail.com', 'Rider', 'Five', 9053382134135, 'BIKE');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider6@gmail.com', 'Rider', 'Six', 9053353594135, 'BIKE');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider7@gmail.com', 'Rider', 'Seven', 905334594135, 'CAR');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider9@gmail.com', 'Rider', 'Nine', 905338294135, 'CAR');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider10@gmail.com', 'Rider', 'Ten', 905338441355, 'CAR');
+INSERT INTO public."RIDER_DATA" (email, name, surname, phone_number, vehicle) VALUES ('rider11@gmail.com', 'Rider', 'Eleven', 9053382134135, 'BIKE');
+
+
+--
+-- TOC entry 3740 (class 0 OID 24871)
+-- Dependencies: 228
+-- Data for Name: RIDER_REVIEWS; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."RIDER_REVIEWS" ("riderID", user_email, review) VALUES (1, 'user4@gmail.com', 'Good');
+INSERT INTO public."RIDER_REVIEWS" ("riderID", user_email, review) VALUES (2, 'user6@gmail.com', 'Good');
+
+
+--
+-- TOC entry 3728 (class 0 OID 24691)
+-- Dependencies: 216
+-- Data for Name: SHOP; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."SHOP" ("shopID", location, name, "menuID", mgr_phone) VALUES ('Shop1', 'Kalkani
+', 'Kas Market
+', 'G1', '+905424232906');
+INSERT INTO public."SHOP" ("shopID", location, name, "menuID", mgr_phone) VALUES ('Shop2', 'Guzelyurt
+', 'Kas Market', 'G1', '+905424232906');
+INSERT INTO public."SHOP" ("shopID", location, name, "menuID", mgr_phone) VALUES ('Resturant1', 'Kalkani
+', 'Hele Hele', 'R1', '+905428357890');
+INSERT INTO public."SHOP" ("shopID", location, name, "menuID", mgr_phone) VALUES ('Resturant2', 'Lefke', 'Hele Hele', 'R3', '+905428357890');
+INSERT INTO public."SHOP" ("shopID", location, name, "menuID", mgr_phone) VALUES ('Resturant3', 'Kalkani', 'Ada Pizza', 'R1', '+905428357890');
+INSERT INTO public."SHOP" ("shopID", location, name, "menuID", mgr_phone) VALUES ('Resturant4', 'Kalkani', 'Alacarte', 'R1', '+905428357890');
+
+
+--
+-- TOC entry 3738 (class 0 OID 24836)
+-- Dependencies: 226
+-- Data for Name: SHOP_REVIEWS; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."SHOP_REVIEWS" ("shopID", user_email, review) VALUES ('Resturant1', 'user3@gmail.com', 'Good');
+INSERT INTO public."SHOP_REVIEWS" ("shopID", user_email, review) VALUES ('Shop1', 'user4@gmail.com', 'Good');
+
+
+--
+-- TOC entry 3725 (class 0 OID 24646)
+-- Dependencies: 213
+-- Data for Name: STUDENT; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."STUDENT" (user_email, student_no, school_name) VALUES ('user11@gmail.com', '2632678', 'ODTU');
+INSERT INTO public."STUDENT" (user_email, student_no, school_name) VALUES ('user7@gmail.com', '2435278', 'ODTU');
+INSERT INTO public."STUDENT" (user_email, student_no, school_name) VALUES ('user10@gmail.com', '2356578', 'ODTU');
+
+
+--
+-- TOC entry 3722 (class 0 OID 24615)
+-- Dependencies: 210
+-- Data for Name: USER; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user1@gmail.com', 'Omar', 'Ammar', '***********
+', 'STANDERED
+', '+905338209086');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user3@gmail.com', 'Saeed', 'Alkudaimi', '*************', 'STANDERED
+', '+905339874328');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user6@gmail.com', 'lyrica', 'brown', '*************', 'PREMIUM', '+90433567832');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user7@gmail.com', 'Takeda', 'Tadashi', '*************', 'STUDENT', '+90433567832');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user10@gmail.com', 'jhonny', 'Cage', '*************', 'STUDENT', '+90435437832');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user11@gmail.com', 'Sonya', 'Blade', '*************', 'STUDENT', '+90542567832');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user8@gmail.com', 'Amer', 'Raissi', '*************', 'STANDERED', '+904335324832');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user9@gmail.com', 'Walid', 'lorbus', '*************', 'STANDERED', '+90433574832');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user4@gmail.com', 'James', 'Jones
+', '*********', 'PREMIUM', '+905338772456');
+INSERT INTO public."USER" (email, uname, surname, pwd, "accountType", phone) VALUES ('user2@gmail.com', 'Wuda
+', 'Abassi', '*************
+', 'STANDERED
+', '+901345112434');
+
+
+--
+-- TOC entry 3723 (class 0 OID 24622)
+-- Dependencies: 211
+-- Data for Name: USER_ADDRESSES; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."USER_ADDRESSES" (user_email, "Adress") VALUES ('user1@gmail.com', 'kalkani, Guzelyurt');
+INSERT INTO public."USER_ADDRESSES" (user_email, "Adress") VALUES ('user1@gmail.com', 'Gonyeli, Lefkosa');
+INSERT INTO public."USER_ADDRESSES" (user_email, "Adress") VALUES ('user3@gmail.com', 'Sakaraya , Famagusta');
+
+
+--
+-- TOC entry 3724 (class 0 OID 24634)
+-- Dependencies: 212
+-- Data for Name: USER_CC_INFO; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public."USER_CC_INFO" (user_email, cc_info) VALUES ('user1@gmail.com', '143359u13490u114');
+
+
+--
+-- TOC entry 3557 (class 2606 OID 25120)
+-- Name: GROCERRY GROCERRY_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."GROCERRY"
+    ADD CONSTRAINT "GROCERRY_pkey" PRIMARY KEY ("GROCERRY_ID");
+
+
+--
+-- TOC entry 3555 (class 2606 OID 25072)
+-- Name: PRODUCT_REVIEWS PRODUCT_REVIEWS_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PRODUCT_REVIEWS"
+    ADD CONSTRAINT "PRODUCT_REVIEWS_pkey" PRIMARY KEY ("productID", user_email);
+
+
+--
+-- TOC entry 3515 (class 2606 OID 25205)
+-- Name: USER_ADDRESSES USER_ADDRESSES_Adress_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."USER_ADDRESSES"
+    ADD CONSTRAINT "USER_ADDRESSES_Adress_key" UNIQUE ("Adress");
+
+
+--
+-- TOC entry 3519 (class 2606 OID 25212)
+-- Name: USER_CC_INFO USER_CC_INFO_cc_info_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."USER_CC_INFO"
+    ADD CONSTRAINT "USER_CC_INFO_cc_info_key" UNIQUE (cc_info);
+
+
+--
+-- TOC entry 3531 (class 2606 OID 25048)
+-- Name: MENU pk_menu_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."MENU"
+    ADD CONSTRAINT pk_menu_id PRIMARY KEY ("menuID");
+
+
+--
+-- TOC entry 3527 (class 2606 OID 25060)
+-- Name: MGR_DATA pk_mgr_Data; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."MGR_DATA"
+    ADD CONSTRAINT "pk_mgr_Data" PRIMARY KEY (mgr_phone);
+
+
+--
+-- TOC entry 3541 (class 2606 OID 24783)
+-- Name: ORDER pk_order_Table; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER"
+    ADD CONSTRAINT "pk_order_Table" PRIMARY KEY ("orderID");
+
+
+--
+-- TOC entry 3545 (class 2606 OID 24808)
+-- Name: ORDER_DELIVERY pk_order_delivery; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_DELIVERY"
+    ADD CONSTRAINT pk_order_delivery PRIMARY KEY ("orderID");
+
+
+--
+-- TOC entry 3547 (class 2606 OID 24830)
+-- Name: ORDER_PICKUP pk_order_pickup; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_PICKUP"
+    ADD CONSTRAINT pk_order_pickup PRIMARY KEY ("orderID");
+
+
+--
+-- TOC entry 3543 (class 2606 OID 24793)
+-- Name: ORDER_RESERVATION pk_order_reservation; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_RESERVATION"
+    ADD CONSTRAINT pk_order_reservation PRIMARY KEY ("orderID");
+
+
+--
+-- TOC entry 3525 (class 2606 OID 25031)
+-- Name: PREMIUM pk_premium_user; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PREMIUM"
+    ADD CONSTRAINT pk_premium_user PRIMARY KEY (user_email);
+
+
+--
+-- TOC entry 3535 (class 2606 OID 25041)
+-- Name: PRODUCT pk_product; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PRODUCT"
+    ADD CONSTRAINT pk_product PRIMARY KEY ("productID");
+
+
+--
+-- TOC entry 3551 (class 2606 OID 25066)
+-- Name: PRODUCT_ORDER pk_product_order; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PRODUCT_ORDER"
+    ADD CONSTRAINT pk_product_order PRIMARY KEY ("productID", "orderID");
+
+
+--
+-- TOC entry 3533 (class 2606 OID 25078)
+-- Name: RESTURANTS pk_resturant; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."RESTURANTS"
+    ADD CONSTRAINT pk_resturant PRIMARY KEY ("resturantID");
+
+
+--
+-- TOC entry 3539 (class 2606 OID 25086)
+-- Name: RIDERS pk_rider; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."RIDERS"
+    ADD CONSTRAINT pk_rider PRIMARY KEY ("ID");
+
+
+--
+-- TOC entry 3537 (class 2606 OID 24760)
+-- Name: RIDER_DATA pk_rider_data; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."RIDER_DATA"
+    ADD CONSTRAINT pk_rider_data PRIMARY KEY (email);
+
+
+--
+-- TOC entry 3553 (class 2606 OID 25097)
+-- Name: RIDER_REVIEWS pk_rider_reviwes; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."RIDER_REVIEWS"
+    ADD CONSTRAINT pk_rider_reviwes PRIMARY KEY ("riderID", user_email);
+
+
+--
+-- TOC entry 3529 (class 2606 OID 25105)
+-- Name: SHOP pk_shop; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."SHOP"
+    ADD CONSTRAINT pk_shop PRIMARY KEY ("shopID");
+
+
+--
+-- TOC entry 3549 (class 2606 OID 25111)
+-- Name: SHOP_REVIEWS pk_shop_reviews; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."SHOP_REVIEWS"
+    ADD CONSTRAINT pk_shop_reviews PRIMARY KEY ("shopID", user_email);
+
+
+--
+-- TOC entry 3513 (class 2606 OID 24914)
+-- Name: USER pk_user; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."USER"
+    ADD CONSTRAINT pk_user PRIMARY KEY (email);
+
+
+--
+-- TOC entry 3517 (class 2606 OID 25220)
+-- Name: USER_ADDRESSES pk_user_Addresses; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."USER_ADDRESSES"
+    ADD CONSTRAINT "pk_user_Addresses" PRIMARY KEY (user_email, "Adress");
+
+
+--
+-- TOC entry 3521 (class 2606 OID 24963)
+-- Name: USER_CC_INFO pk_user_cc_info; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."USER_CC_INFO"
+    ADD CONSTRAINT pk_user_cc_info PRIMARY KEY (user_email);
+
+
+--
+-- TOC entry 3523 (class 2606 OID 24975)
+-- Name: STUDENT pk_user_student; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."STUDENT"
+    ADD CONSTRAINT pk_user_student PRIMARY KEY (user_email);
+
+
+--
+-- TOC entry 3582 (class 2606 OID 25121)
+-- Name: GROCERRY GROCERRY_GROCERRY_ID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."GROCERRY"
+    ADD CONSTRAINT "GROCERRY_GROCERRY_ID_fkey" FOREIGN KEY ("GROCERRY_ID") REFERENCES public."SHOP"("shopID") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 3570 (class 2606 OID 24819)
+-- Name: ORDER_DELIVERY ORDER_DELIVERY_orderID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_DELIVERY"
+    ADD CONSTRAINT "ORDER_DELIVERY_orderID_fkey" FOREIGN KEY ("orderID") REFERENCES public."ORDER"("orderID") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 3572 (class 2606 OID 25132)
+-- Name: ORDER_DELIVERY ORDER_DELIVERY_shopID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_DELIVERY"
+    ADD CONSTRAINT "ORDER_DELIVERY_shopID_fkey" FOREIGN KEY ("shopID") REFERENCES public."SHOP"("shopID") ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3573 (class 2606 OID 24831)
+-- Name: ORDER_PICKUP ORDER_PICKUP_orderID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_PICKUP"
+    ADD CONSTRAINT "ORDER_PICKUP_orderID_fkey" FOREIGN KEY ("orderID") REFERENCES public."ORDER"("orderID") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 3569 (class 2606 OID 25137)
+-- Name: ORDER_RESERVATION ORDER_RESERVATION_resturantID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_RESERVATION"
+    ADD CONSTRAINT "ORDER_RESERVATION_resturantID_fkey" FOREIGN KEY ("resturantID") REFERENCES public."RESTURANTS"("resturantID") ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3567 (class 2606 OID 25127)
+-- Name: ORDER ORDER_user_email_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER"
+    ADD CONSTRAINT "ORDER_user_email_fkey" FOREIGN KEY (user_email) REFERENCES public."USER"(email) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3561 (class 2606 OID 25142)
+-- Name: PREMIUM PREMIUM_user_email_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PREMIUM"
+    ADD CONSTRAINT "PREMIUM_user_email_fkey" FOREIGN KEY (user_email) REFERENCES public."USER"(email) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3577 (class 2606 OID 25147)
+-- Name: PRODUCT_ORDER PRODUCT_ORDER_productID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PRODUCT_ORDER"
+    ADD CONSTRAINT "PRODUCT_ORDER_productID_fkey" FOREIGN KEY ("productID") REFERENCES public."PRODUCT"("productID") ON UPDATE SET NULL ON DELETE SET NULL NOT VALID;
+
+
+--
+-- TOC entry 3581 (class 2606 OID 25157)
+-- Name: PRODUCT_REVIEWS PRODUCT_REVIEWS_productID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PRODUCT_REVIEWS"
+    ADD CONSTRAINT "PRODUCT_REVIEWS_productID_fkey" FOREIGN KEY ("productID") REFERENCES public."PRODUCT"("productID") ON UPDATE SET NULL ON DELETE SET NULL NOT VALID;
+
+
+--
+-- TOC entry 3580 (class 2606 OID 25152)
+-- Name: PRODUCT_REVIEWS PRODUCT_REVIEWS_user_email_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PRODUCT_REVIEWS"
+    ADD CONSTRAINT "PRODUCT_REVIEWS_user_email_fkey" FOREIGN KEY (user_email) REFERENCES public."USER"(email) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3565 (class 2606 OID 25221)
+-- Name: PRODUCT PRODUCT_menuID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PRODUCT"
+    ADD CONSTRAINT "PRODUCT_menuID_fkey" FOREIGN KEY ("menuID") REFERENCES public."MENU"("menuID") ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3564 (class 2606 OID 25162)
+-- Name: RESTURANTS RESTURANTS_resturantID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."RESTURANTS"
+    ADD CONSTRAINT "RESTURANTS_resturantID_fkey" FOREIGN KEY ("resturantID") REFERENCES public."RESTURANTS"("resturantID") ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3578 (class 2606 OID 25167)
+-- Name: RIDER_REVIEWS RIDER_REVIEWS_riderID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."RIDER_REVIEWS"
+    ADD CONSTRAINT "RIDER_REVIEWS_riderID_fkey" FOREIGN KEY ("riderID") REFERENCES public."RIDERS"("ID") ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3579 (class 2606 OID 25172)
+-- Name: RIDER_REVIEWS RIDER_REVIEWS_user_email_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."RIDER_REVIEWS"
+    ADD CONSTRAINT "RIDER_REVIEWS_user_email_fkey" FOREIGN KEY (user_email) REFERENCES public."USER"(email) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3575 (class 2606 OID 25192)
+-- Name: SHOP_REVIEWS SHOP_REVIEWS_shopID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."SHOP_REVIEWS"
+    ADD CONSTRAINT "SHOP_REVIEWS_shopID_fkey" FOREIGN KEY ("shopID") REFERENCES public."SHOP"("shopID") ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3574 (class 2606 OID 25187)
+-- Name: SHOP_REVIEWS SHOP_REVIEWS_user_email_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."SHOP_REVIEWS"
+    ADD CONSTRAINT "SHOP_REVIEWS_user_email_fkey" FOREIGN KEY (user_email) REFERENCES public."USER"(email) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3562 (class 2606 OID 25177)
+-- Name: SHOP SHOP_menuID_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."SHOP"
+    ADD CONSTRAINT "SHOP_menuID_fkey" FOREIGN KEY ("menuID") REFERENCES public."MENU"("menuID") ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3563 (class 2606 OID 25182)
+-- Name: SHOP SHOP_mgr_phone_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."SHOP"
+    ADD CONSTRAINT "SHOP_mgr_phone_fkey" FOREIGN KEY (mgr_phone) REFERENCES public."MGR_DATA"(mgr_phone) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3560 (class 2606 OID 25197)
+-- Name: STUDENT STUDENT_user_email_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."STUDENT"
+    ADD CONSTRAINT "STUDENT_user_email_fkey" FOREIGN KEY (user_email) REFERENCES public."USER"(email) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3558 (class 2606 OID 25206)
+-- Name: USER_ADDRESSES USER_ADDRESSES_user_email_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."USER_ADDRESSES"
+    ADD CONSTRAINT "USER_ADDRESSES_user_email_fkey" FOREIGN KEY (user_email) REFERENCES public."USER"(email) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3559 (class 2606 OID 25213)
+-- Name: USER_CC_INFO USER_CC_INFO_user_email_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."USER_CC_INFO"
+    ADD CONSTRAINT "USER_CC_INFO_user_email_fkey" FOREIGN KEY (user_email) REFERENCES public."USER"(email) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+--
+-- TOC entry 3571 (class 2606 OID 25087)
+-- Name: ORDER_DELIVERY fk_delivery_rider; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_DELIVERY"
+    ADD CONSTRAINT fk_delivery_rider FOREIGN KEY ("riderID") REFERENCES public."RIDERS"("ID") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 3576 (class 2606 OID 24865)
+-- Name: PRODUCT_ORDER fk_product_order; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."PRODUCT_ORDER"
+    ADD CONSTRAINT fk_product_order FOREIGN KEY ("orderID") REFERENCES public."ORDER"("orderID") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 3568 (class 2606 OID 24794)
+-- Name: ORDER_RESERVATION fk_reservation_orderdetail; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ORDER_RESERVATION"
+    ADD CONSTRAINT fk_reservation_orderdetail FOREIGN KEY ("orderID") REFERENCES public."ORDER"("orderID") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 3566 (class 2606 OID 24767)
+-- Name: RIDERS fk_rider_data; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."RIDERS"
+    ADD CONSTRAINT fk_rider_data FOREIGN KEY (email) REFERENCES public."RIDER_DATA"(email) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+-- Completed on 2022-05-17 22:47:40 EEST
+
+--
+-- PostgreSQL database dump complete
+--
+
+-- Completed on 2022-05-17 22:47:40 EEST
+
+--
+-- PostgreSQL database cluster dump complete
+--
+
